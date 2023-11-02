@@ -1,26 +1,42 @@
 package com.bignerdranch.android.week8
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.week8.databinding.ListItemPoliceBinding
 import com.bignerdranch.android.week8.databinding.ListItemCrimeBinding
 
+import android.text.format.DateFormat
+
 class CrimeHolder(
-    private val binding:ListItemCrimeBinding
-) : RecyclerView.ViewHolder(binding.root){
-    fun bind(crime: Crime){
-        binding.crimeTitle.text =crime.title
-        binding.crimeDate.text = crime.date.toString()
+    private val binding: ListItemCrimeBinding
+) : RecyclerView.ViewHolder(binding.root) {
+    fun bind(crime: Crime) {
+        binding.crimeTitle.text = crime.title
+
+        // Format the date using android.text.format.DateFormat
+        val formattedDate = DateFormat.format("MMMM dd, yyyy", crime.date)
+
+        // Set the formatted date to the crimeDate TextView
+        binding.crimeDate.text = formattedDate.toString()
 
         binding.root.setOnClickListener {
             Toast.makeText(
                 binding.root.context,
                 "${crime.title} clicked!",
                 Toast.LENGTH_SHORT
-        ).show() }
+            ).show()
+        }
+
+        binding.crimeSolved.visibility = if (crime.isSolved) {
+            View.VISIBLE
+        } else {
+            View.GONE
+        }
     }
+
 }
 
 class PoliceCrimeHolder(private val binding: ListItemPoliceBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -29,6 +45,7 @@ class PoliceCrimeHolder(private val binding: ListItemPoliceBinding) : RecyclerVi
     fun bind(crime: Crime) {
         binding.policeTitle.text= crime.title
         binding.policeDate.text = crime.date.toString()
+
     }
 }
 
