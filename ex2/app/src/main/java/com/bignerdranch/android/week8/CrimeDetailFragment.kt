@@ -23,10 +23,11 @@ class CrimeDetailFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         crime = Crime(
-            id= UUID.randomUUID(),
+            id = UUID.randomUUID(),
             title = "",
             date = Date(),
-            isSolved = false
+            isSolved = false,
+            requiresPolice = false
         )
     }
 

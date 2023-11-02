@@ -1,0 +1,29 @@
+<!-- list_item_police.xml -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/policeTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_red_dark"
+        android:text="@string/crime_title_label"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Add other views as needed for more serious crimes -->
+
+    <Button
+        android:id="@+id/contactPoliceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_police_button_label"
+        android:background="@android:color/holo_red_dark"
+        android:textColor="@android:color/white"/>
+</LinearLayout>
